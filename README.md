@@ -67,5 +67,3 @@ O servidor Vite provisionará o módulo e abrirá a UI em `http://localhost:5173
 2. **CORS & Preflight OPTIONS**: Para permitir Deleções (Verbo DELETE HTTP) nativas provenientes de Fetch APIs no navegador sem gerar falhas `403` via Chrome, o Controller Spring Boot recebeu liberações explícitas contra Cross-Origin Resource Sharing.
 3. **Hibernate Cascade Deletion Manual**: O Spring injeta dependências Transacionais (`@Transactional`) que forçam o cache nível 1 a purgar filhos em Coleções (Collections do Hash) antes de dropar Constraints de chave-estrangeira do banco, mantendo toda a deleção íntegra.
 
----
-> *Desenvolvido com excelência arquitetônica e dedicação de UI/UX por Felipe Mazzi.*
