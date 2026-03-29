@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Database files
+*.db
+backend/data/
+# Temp files
+out.txt
