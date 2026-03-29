@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-surface-900: #09090b; /* Zinc 950 */
+  --color-surface-800: #18181b; /* Zinc 900 */
+  
+  --color-accent-green: #22c55e;
+  --color-accent-red: #ef4444;
+  --color-accent-blue: #3b82f6;
+  --color-accent-amber: #f59e0b;
+
+  --font-inter: "Inter", sans-serif;
+  /* Remover as fontes antigas para focar puramente em Inter (Clean) */
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-surface-900);
+    /* Fundo Matte Dark sem gradientes neon, apenas um noise texture extremamente sutil ~2% opacidade */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+    color: #fafafa;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font-inter);
+  }
+}
+
+@layer components {
+  /* Bento UI / Premium Panels substituem o glassmorphism roxo genérico */
+  .glass-panel {
+    background: rgba(24, 24, 27, 0.4); /* surface-800 com opacidade */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borda ultraleve Apple-style */
+    transition: all 0.2s ease;
+  }
+
+  .glass-panel:hover {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-panel-heavy {
+    background: rgba(24, 24, 27, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Custom Scrollbar for sleekness */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Remover botões nativos feios no input number */
+  .hide-spin-button::-webkit-outer-spin-button,
+  .hide-spin-button::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .hide-spin-button {
+    -moz-appearance: textfield;
+  }
+}
